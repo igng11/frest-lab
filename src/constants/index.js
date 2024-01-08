@@ -1,1 +1,1 @@
-export const productsCollection = "products";
+export const productsCollection = "serums";

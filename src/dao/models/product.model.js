@@ -53,11 +53,12 @@ const productsSchema = new mongoose.Schema({
   logos:{
     type:[Number],
     require:true
-    },
-  owner:{
-    type:mongoose.Schema.ObjectId,
-    ref:"users"
-  }
+    }
+  //   ,
+  // owner:{
+  //   type:mongoose.Schema.ObjectId,
+  //   ref:"users"
+  // }
 });
 
 export const productsModel = mongoose.model(productsCollection,productsSchema);

@@ -6,11 +6,14 @@
     <title>Lista de Productos</title>
 </head>
 <body>
-    <h1>Esta es la página de inicio</h1>
-        <h1>Lista de Productos</h1>
+    <h1>Frest-lab</h1>
+        <h3>Lista de Productos</h3>
     <ul>
         {{#each productos}}
-            <li>{{this.name}} - ${{this.price}}</li>
+            <li><b>Number: </b>{{this.num}}</li>
+            <li><b>Name</b>{{this.p_name}}</li>
+            <li><b>Description</b>{{this.p_desc}}</li>
+            <li> <b>$</b>{{this.price}}</li>
         {{/each}}
     </ul>
 </body>

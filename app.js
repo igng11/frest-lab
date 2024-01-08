@@ -1,7 +1,9 @@
 import express from "express";
 import { config } from "./src/config/config.js";
+import { connectBD } from "./src/config/dbConnection.js";
 import { engine } from "express-handlebars";
 import { homeRouters } from "./src/routes/home.routes.js";
+import { productsRouters } from "./src/routes/product.routes.js";
 import { __dirname } from "./utils.js";
 import path from 'path'; 
 
@@ -26,34 +28,8 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view cache', false);
 
+//conexion a la base de datos
+connectBD();
 
-app.use("/home", homeRouters);
-
-
-
-// Ejemplo de modelo de datos (debes configurar según tus necesidades)
-const products = {
-    find: async () => {
-      // Simulación de obtener la lista de productos
-      return [
-        { name: 'Producto 1', price: 20 },
-        { name: 'Producto 2', price: 30 },
-        { name: 'Producto 3', price: 25 }
-      ];
-    }
-  };
-
-
-// Ruta para la página de inicio que muestra la lista de productos
-app.get('/home', async (req, res) => {
-    try {
-      // Obtener la lista de productos (simulado)
-      const productList = await products.find();
-
-      // Renderizar la vista 'home' con los productos
-      res.render('home', { productos: productList });
-    } catch (error) {
-      console.error('Error al obtener la lista de productos:', error);
-      res.status(500).send('Error interno del servidor');
-    }
-  });
+app.use("/", homeRouters);
+app.use("/", productsRouters);

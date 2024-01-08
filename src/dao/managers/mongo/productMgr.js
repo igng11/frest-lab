@@ -12,5 +12,16 @@ export class ProductManagerMongo {
         return products;
     } catch (error) {
         throw error;
-    }}
-};
+    }};
+
+        // Guardar productos en el archivo
+        async save(product) {
+          try {
+              const productCreated = await this.model.create(product);
+              return productCreated;
+          } catch (error) {
+              throw error;
+          }
+      }};
+  
+  export default ProductManagerMongo;
