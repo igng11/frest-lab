@@ -1,12 +1,13 @@
 import express from "express";
-import exphbs from 'express-handlebars';
+import { config } from "./src/config/config.js";
 import { engine } from "express-handlebars";
 import { homeRouters } from "./src/routes/home.routes.js";
 import { __dirname } from "./utils.js";
 import path from 'path'; 
 
 const app = express();
-const port = 3000;
+// const port = 8084;
+const port = process.env.PORT || 3000; // Puerto 3000 como defecto
 app.listen(port,()=>console.log(`Server ${port}`));
 
 //mildwares
