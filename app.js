@@ -6,7 +6,7 @@ import { __dirname } from "./utils.js";
 import path from 'path'; 
 
 const app = express();
-const port = 8084;
+const port = 3000;
 app.listen(port,()=>console.log(`Server ${port}`));
 
 //mildwares
